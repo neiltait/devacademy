@@ -3,6 +3,7 @@ package com.examples.equals;
 import static java.lang.System.out;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -45,6 +46,9 @@ public class MissingEquals {
 		setToProcess = new TreeSet<PersonDTO>();
 		application.checkSet(setToProcess);
 				
+		setToProcess = new LinkedHashSet<PersonDTO>();
+		application.checkSet(setToProcess);
+		
 		/* As an exercise, please test another Set implementation from the 'All Known Implementing Classes' list on the API docs:
 		 * 
 		 * http://docs.oracle.com/javase/7/docs/api/java/util/Set.html
