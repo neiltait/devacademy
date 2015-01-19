@@ -5,6 +5,13 @@ import static java.lang.System.out;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Illustrates the significance that equals/hashcode plays when we are using the 
+ * Collections API. 
+ * 
+ * @author taitn
+ *
+ */
 public class MissingEquals {
 	
 	/* Our 'people' identified by their SS ID (parameter 3) */
@@ -27,8 +34,6 @@ public class MissingEquals {
 	 * Since it is a SET, which guarantees we will have no duplicates, see:
 	 * 
 	 * http://docs.oracle.com/javase/7/docs/api/java/util/Set.html
-	 * 
-	 * 
 	 * 
 	 */
 	void checkHashSet(){
