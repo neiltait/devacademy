@@ -4,6 +4,7 @@ import static java.lang.System.out;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Illustrates the significance that equals/hashcode plays when we are using the 
@@ -22,35 +23,55 @@ public class MissingEquals {
 	
 	/* This record is a duplicate of personOne (from a data point of view)*/
 	PersonDTO duplicateOne = new PersonDTO("blogs", "fred", "0001");
+
+	
+	
+	
+
 	
 	public static void main(String[] args) {
 		
 		MissingEquals application = new MissingEquals();
-			
-		application.checkHashSet();
+		
+		/* We declare a reference variable of the generic base type 'Set' */
+		Set<PersonDTO> setToProcess;
+		
+		
+		/* Now we assign one of it's implementation and sent this to our checking service */
+		setToProcess = new HashSet<PersonDTO>();
+		application.checkSet(setToProcess);
+		
+		/* Assign a different implementation and sent this to our checking service */
+		setToProcess = new TreeSet<PersonDTO>();
+		application.checkSet(setToProcess);
+				
+		/* As an exercise, please test another Set implementation from the 'All Known Implementing Classes' list on the API docs:
+		 * 
+		 * http://docs.oracle.com/javase/7/docs/api/java/util/Set.html
+		 * 
+		 * */
+	
 	}
 
 	/**
-	 * This illustrates the issue we discussed (albiet in a different collection!)...
-	 * Since it is a SET, which guarantees we will have no duplicates, see:
-	 * 
-	 * http://docs.oracle.com/javase/7/docs/api/java/util/Set.html
-	 * 
+	 * Note this method/service declares that you can send ANY of the Set implementations in for checking 
 	 */
-	void checkHashSet(){
+	void checkSet(Set<PersonDTO> set){
 		
-		Set<PersonDTO> hashSet = new HashSet<PersonDTO>(); 
+		out.println("Testing type: " + set.getClass().getName());
 		
-		hashSet.add(personOne);
-		hashSet.add(personTwo);
-		hashSet.add(personThree);
-		hashSet.add(personFour);
+		set.add(personOne);
+		set.add(personTwo);
+		set.add(personThree);
+		set.add(personFour);
 		
 		/* Since the SS ID of this record is identical to 'personOne' we'd expect this to
 		 * be treated as a duplicate... */
-		hashSet.add(duplicateOne);		
+		set.add(duplicateOne);		
 		
-		out.println("hash set size (should be 4)" + hashSet.size());		
+		out.println("hash set size (should be 4)" + set.size());		
+		
+		
 	}
 	
 }
