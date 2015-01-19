@@ -18,6 +18,7 @@ public class MissingEquals {
 	PersonDTO personOne = new PersonDTO("blogs", "fred", "0001");
 	PersonDTO personTwo = new PersonDTO("blogs", "joe", "0002");
 	PersonDTO personThree = new PersonDTO("blogs", "fred", "0003");
+	PersonDTO personFour = new PersonDTO("blogs", "Jeff", "0004");
 	
 	/* This record is a duplicate of personOne (from a data point of view)*/
 	PersonDTO duplicateOne = new PersonDTO("blogs", "fred", "0001");
@@ -43,12 +44,13 @@ public class MissingEquals {
 		hashSet.add(personOne);
 		hashSet.add(personTwo);
 		hashSet.add(personThree);
+		hashSet.add(personFour);
 		
 		/* Since the SS ID of this record is identical to 'personOne' we'd expect this to
 		 * be treated as a duplicate... */
 		hashSet.add(duplicateOne);		
 		
-		out.println("hash set size (should be 3)" + hashSet.size());		
+		out.println("hash set size (should be 4)" + hashSet.size());		
 	}
 	
 }
