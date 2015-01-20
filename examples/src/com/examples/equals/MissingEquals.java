@@ -16,6 +16,8 @@ import java.util.TreeSet;
  */
 public class MissingEquals {
 	
+	/* test */
+	
 	/* Our 'people' identified by their SS ID (parameter 3) */
 	PersonDTO personOne = new PersonDTO("blogs", "fred", "0001");
 	PersonDTO personTwo = new PersonDTO("blogs", "joe", "0002");
