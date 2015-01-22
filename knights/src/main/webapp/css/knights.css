@@ -39,3 +39,7 @@ body {
 .errorMessage {
     color: red;
 }
+
+input[type="submit"], input[type="button"] {
+	padding : 10px;
+}
